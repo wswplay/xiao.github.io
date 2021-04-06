@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>计算属性 | js边城</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/13958395?s=460&amp;u=b30a9731e3748ced50e5b17402ab59f15f59ae05&amp;v=4">
+    <meta name="description" content="JavaScript基础知识,Vue源码解读等。">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.575d6437.js" as="script"><link rel="preload" href="/assets/js/2.bfa83013.js" as="script"><link rel="preload" href="/assets/js/36.3a377035.js" as="script"><link rel="prefetch" href="/assets/js/10.2d475e14.js"><link rel="prefetch" href="/assets/js/11.06836868.js"><link rel="prefetch" href="/assets/js/12.ff06d420.js"><link rel="prefetch" href="/assets/js/13.43d49685.js"><link rel="prefetch" href="/assets/js/14.86784561.js"><link rel="prefetch" href="/assets/js/15.c5b69f25.js"><link rel="prefetch" href="/assets/js/16.fd55f560.js"><link rel="prefetch" href="/assets/js/17.e1782c33.js"><link rel="prefetch" href="/assets/js/18.d4e3e30d.js"><link rel="prefetch" href="/assets/js/19.d544dbb0.js"><link rel="prefetch" href="/assets/js/20.2c580306.js"><link rel="prefetch" href="/assets/js/21.b34ce675.js"><link rel="prefetch" href="/assets/js/22.1f9d08d6.js"><link rel="prefetch" href="/assets/js/23.ad45c531.js"><link rel="prefetch" href="/assets/js/24.ed9344c1.js"><link rel="prefetch" href="/assets/js/25.0334871e.js"><link rel="prefetch" href="/assets/js/26.975fbda3.js"><link rel="prefetch" href="/assets/js/27.bed3e589.js"><link rel="prefetch" href="/assets/js/28.8d2b32e9.js"><link rel="prefetch" href="/assets/js/29.e61665b4.js"><link rel="prefetch" href="/assets/js/3.1a942be9.js"><link rel="prefetch" href="/assets/js/30.1c7ff6ae.js"><link rel="prefetch" href="/assets/js/31.3d09aa0e.js"><link rel="prefetch" href="/assets/js/32.f426e4a0.js"><link rel="prefetch" href="/assets/js/33.57919a73.js"><link rel="prefetch" href="/assets/js/34.f6b8473f.js"><link rel="prefetch" href="/assets/js/35.5952ce29.js"><link rel="prefetch" href="/assets/js/37.42d817a9.js"><link rel="prefetch" href="/assets/js/38.d32fd968.js"><link rel="prefetch" href="/assets/js/39.6f6c5fcd.js"><link rel="prefetch" href="/assets/js/4.7b6dc275.js"><link rel="prefetch" href="/assets/js/40.23e23f49.js"><link rel="prefetch" href="/assets/js/41.e24bc8cd.js"><link rel="prefetch" href="/assets/js/42.1b4707ae.js"><link rel="prefetch" href="/assets/js/43.3f7992cf.js"><link rel="prefetch" href="/assets/js/44.6d587be1.js"><link rel="prefetch" href="/assets/js/45.6ee215d2.js"><link rel="prefetch" href="/assets/js/46.846e3b7c.js"><link rel="prefetch" href="/assets/js/47.0b095542.js"><link rel="prefetch" href="/assets/js/48.a9f6e956.js"><link rel="prefetch" href="/assets/js/5.e311493a.js"><link rel="prefetch" href="/assets/js/6.72ad7c85.js"><link rel="prefetch" href="/assets/js/7.f1376b7f.js"><link rel="prefetch" href="/assets/js/8.676f0b32.js"><link rel="prefetch" href="/assets/js/9.9cdf47f3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/zh/" class="home-link router-link-active"><img src="https://avatars.githubusercontent.com/u/13958395?s=460&amp;u=b30a9731e3748ced50e5b17402ab59f15f59ae05&amp;v=4" alt="js边城" class="logo"> <span class="site-name can-hide">js边城</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/zh/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="选择语言" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="选择语言" class="mobile-dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/zh/guide/vue3/computed.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/wswplay/wswplay.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/zh/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="选择语言" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="选择语言" class="mobile-dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/zh/guide/vue3/computed.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/wswplay/wswplay.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Design Art</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vscode</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>扉页</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基础知识</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2.x</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue3.x</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/zh/guide/vue3/renderer.html" class="sidebar-link">渲染器</a></li><li><a href="/zh/guide/vue3/composition-api.html" class="sidebar-link">组合式 API</a></li><li><a href="/zh/guide/vue3/proxy.html" class="sidebar-link">响应式系统</a></li><li><a href="/zh/guide/vue3/computed.html" aria-current="page" class="active sidebar-link">计算属性</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/guide/vue3/computed.html#计算属性-api-computed" class="sidebar-link">计算属性 API： computed</a></li></ul></li><li><a href="/zh/guide/vue3/watch.html" class="sidebar-link">watch</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue CLI</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VuePress</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VueRouter</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="计算属性-api-computed"><a href="#计算属性-api-computed" class="header-anchor">#</a> 计算属性 API： computed</h2> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token parameter">getterOrOptions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+  <span class="token comment">// getter 函数 </span>
+  <span class="token keyword">let</span> getter 
+  <span class="token comment">// setter 函数 </span>
+  <span class="token keyword">let</span> setter 
+  <span class="token comment">// 标准化参数 </span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isFunction</span><span class="token punctuation">(</span>getterOrOptions<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token comment">// 表面传入的是 getter 函数，不能修改计算属性的值 </span>
+    getter <span class="token operator">=</span> getterOrOptions 
+    setter <span class="token operator">=</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">!==</span> <span class="token string">'production'</span><span class="token punctuation">)</span> 
+      <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> 
+        console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">'Write operation failed: computed value is readonly'</span><span class="token punctuation">)</span> 
+      <span class="token punctuation">}</span> 
+      <span class="token operator">:</span> <span class="token constant">NOOP</span> 
+  <span class="token punctuation">}</span> 
+  <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+    getter <span class="token operator">=</span> getterOrOptions<span class="token punctuation">.</span>get 
+    setter <span class="token operator">=</span> getterOrOptions<span class="token punctuation">.</span>set 
+  <span class="token punctuation">}</span> 
+  <span class="token comment">// 数据是否脏的 </span>
+  <span class="token keyword">let</span> dirty <span class="token operator">=</span> <span class="token boolean">true</span> 
+  <span class="token comment">// 计算结果 </span>
+  <span class="token keyword">let</span> value 
+  <span class="token keyword">let</span> computed 
+  <span class="token comment">// 创建副作用函数 </span>
+  <span class="token keyword">const</span> runner <span class="token operator">=</span> <span class="token function">effect</span><span class="token punctuation">(</span>getter<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+    <span class="token comment">// 延时执行 </span>
+    lazy<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+    <span class="token comment">// 标记这是一个 computed effect 用于在 trigger 阶段的优先级排序 </span>
+    computed<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+    <span class="token comment">// 调度执行的实现 </span>
+    <span class="token function-variable function">scheduler</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> 
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dirty<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        dirty <span class="token operator">=</span> <span class="token boolean">true</span> 
+        <span class="token comment">// 派发通知，通知运行访问该计算属性的 activeEffect </span>
+        <span class="token function">trigger</span><span class="token punctuation">(</span>computed<span class="token punctuation">,</span> <span class="token string">&quot;set&quot;</span> <span class="token comment">/* SET */</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span> 
+      <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span> 
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> 
+  <span class="token comment">// 创建 computed 对象 </span>
+  computed <span class="token operator">=</span> <span class="token punctuation">{</span> 
+    __v_isRef<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+    <span class="token comment">// 暴露 effect 对象以便计算属性可以停止计算 </span>
+    effect<span class="token operator">:</span> runner<span class="token punctuation">,</span> 
+    <span class="token keyword">get</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token comment">// 计算属性的 getter </span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>dirty<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token comment">// 只有数据为脏的时候才会重新计算 </span>
+        value <span class="token operator">=</span> <span class="token function">runner</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+        dirty <span class="token operator">=</span> <span class="token boolean">false</span> 
+      <span class="token punctuation">}</span> 
+      <span class="token comment">// 依赖收集，收集运行访问该计算属性的 activeEffect </span>
+      <span class="token function">track</span><span class="token punctuation">(</span>computed<span class="token punctuation">,</span> <span class="token string">&quot;get&quot;</span> <span class="token comment">/* GET */</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span> 
+      <span class="token keyword">return</span> value 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token keyword">set</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token parameter">newValue</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token comment">// 计算属性的 setter </span>
+      <span class="token function">setter</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> 
+    <span class="token punctuation">}</span> 
+  <span class="token punctuation">}</span> 
+  <span class="token keyword">return</span> computed 
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><p>函数的流程主要做了三件事情：</p> <ol><li>标准化参数；</li> <li>创建副作用函数；</li> <li>创建 computed 对象。</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/zh/guide/vue3/proxy.html" class="prev">
+        响应式系统
+      </a></span> <span class="next"><a href="/zh/guide/vue3/watch.html">
+        watch
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.575d6437.js" defer></script><script src="/assets/js/2.bfa83013.js" defer></script><script src="/assets/js/36.3a377035.js" defer></script>
+  </body>
+</html>
